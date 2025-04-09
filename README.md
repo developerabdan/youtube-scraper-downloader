@@ -1,19 +1,33 @@
-# YouTube Scraper
+# YouTube Scraper & Downloader
 
-A Python script that scrapes YouTube search results based on a keyword and saves video titles, links, and durations to a CSV file.
+A comprehensive tool for searching and downloading YouTube videos:
+1. **YouTube Scraper**: Search YouTube and save video details to CSV
+2. **YouTube Downloader**: Download videos from the CSV with customizable quality options
 
-## Installation
+## Quick Start
 
-1. Clone this repository or download the files
-2. Install the required dependencies:
+### Installation
 
 ```bash
+# Clone this repository
+git clone https://github.com/developerabdan/youtube-scraper-downloader.git
+cd youtube-scraper-downloader
+
+# Create a virtual environment
+python3 -m venv venv
+
+# Activate the virtual environment
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install all dependencies
 pip install -r requirements.txt
 ```
 
-3. Make sure you have Chrome browser installed on your system (required for Selenium)
+> **Note**: For the scraper, you need Chrome browser installed on your system (required for Selenium)
 
-## Usage
+## YouTube Scraper
+
+### Usage
 
 Run the script from the command line with a search keyword:
 
@@ -31,7 +45,7 @@ Example:
 python youtube_scraper.py "python tutorial" --max 20 --output results.csv
 ```
 
-## Output
+### Output
 
 The script generates a CSV file with the following columns:
 - title: The title of the YouTube video
@@ -43,21 +57,6 @@ If no output filename is specified, the script will generate a file with a times
 ## YouTube Downloader
 
 This script allows you to download YouTube videos listed in your CSV file with a progress bar.
-
-### Prerequisites
-
-You'll need a virtual environment with the required packages installed:
-
-```bash
-# Create a virtual environment
-python3 -m venv venv
-
-# Activate the virtual environment
-source venv/bin/activate
-
-# Install required packages
-pip install yt-dlp tqdm
-```
 
 ### Usage
 
