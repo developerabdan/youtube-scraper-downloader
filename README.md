@@ -3,6 +3,7 @@
 A comprehensive tool for searching and downloading YouTube videos:
 1. **YouTube Scraper**: Search YouTube and save video details to CSV
 2. **YouTube Downloader**: Download videos from the CSV with customizable quality options
+3. **Interactive Tool**: User-friendly interactive command-line interface
 
 ## Quick Start
 
@@ -24,6 +25,24 @@ pip install -r requirements.txt
 ```
 
 > **Note**: For the scraper, you need Chrome browser installed on your system (required for Selenium)
+
+## Interactive Tool (Recommended for Beginners)
+
+The easiest way to use this tool is with the interactive command-line interface:
+
+```bash
+python yt_interactive.py
+```
+
+This will guide you through the process with simple prompts:
+1. Enter your search keywords
+2. Choose how many results to fetch
+3. View the search results
+4. Select which videos to download
+5. Choose your preferred quality and resolution
+6. Specify where to save the downloaded videos
+
+No need to remember complex commands or arguments!
 
 ## YouTube Scraper
 
