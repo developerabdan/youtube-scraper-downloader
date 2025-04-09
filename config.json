@@ -1,0 +1,6 @@
+{
+    "region": "ES",
+    "language": "es",
+    "default_max_results": 100,
+    "csv_filename": "youtube_results.csv"
+}
