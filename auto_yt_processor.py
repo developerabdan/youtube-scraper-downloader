@@ -13,6 +13,15 @@ Designed to run as a background service or scheduled task.
 @author: @abdansyakuro.id
 """
 
+def show_project_support():
+    """Display project support message and get user feedback"""
+    print("\n⭐ If you find this project helpful, please consider giving it a star!")
+    print("🐛 Found a bug? Please open an issue at: https://github.com/developerabdan/youtube-scraper-downloader/issues")
+    feedback = input("Did you find this project helpful? (Y/N): ").strip().upper()
+    if feedback == 'Y':
+        print("Thank you for your support! Don't forget to star the project! 🌟")
+    print()
+
 import os
 import csv
 import time

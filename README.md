@@ -1,6 +1,7 @@
 # YouTube Scraper & Downloader
 
 A comprehensive tool for searching and downloading YouTube videos:
+
 1. **YouTube Scraper**: Search YouTube and save video details to CSV
 2. **YouTube Downloader**: Download videos from the CSV with customizable quality options
 3. **Interactive Tool**: User-friendly interactive command-line interface
@@ -40,6 +41,7 @@ python yt_interactive.py
 ```
 
 This will guide you through the process with simple prompts:
+
 1. Enter your search keywords
 2. Choose how many results to fetch
 3. View the search results
@@ -52,6 +54,7 @@ No need to remember complex commands or arguments!
 ## Server Automation
 
 For server deployments, this tool can run as a background process that automatically:
+
 1. Reads search queries from a text file
 2. Processes each query to search YouTube
 3. Downloads the videos based on your configuration
@@ -59,38 +62,41 @@ For server deployments, this tool can run as a background process that automatic
 ### Setup Server Automation
 
 1. Configure your settings in `config.ini`:
+
    ```ini
    [General]
    # File containing search queries (one per line)
    query_file = query.txt
-   
+
    # How often to check for new queries (in minutes)
    check_interval_minutes = 60
-   
+
    # Maximum number of videos to fetch per query
    max_results_per_query = 5
-   
+
    # Automatically download videos after searching
    auto_download = yes
-   
+
    # Quality setting (best, worst, audio)
    download_quality = best
-   
+
    # Resolution (e.g., 360, 720, 1080)
    download_resolution = 720
    ```
 
 2. Add your search keywords to `query.txt`, one per line:
+
    ```
    learn python programming
    machine learning tutorial
    ```
 
 3. Run the background processor:
+
    ```bash
    # For testing in the foreground
    python auto_yt_processor.py
-   
+
    # For server deployment (using nohup to keep running after logout)
    nohup python auto_yt_processor.py > auto_yt.log 2>&1 &
    ```
@@ -122,6 +128,7 @@ python youtube_scraper.py "your search keyword"
 - `--output`: Specify the output CSV filename
 
 Example:
+
 ```bash
 python youtube_scraper.py "python tutorial" --max 20 --output results.csv
 ```
@@ -129,6 +136,7 @@ python youtube_scraper.py "python tutorial" --max 20 --output results.csv
 ### Output
 
 The script generates a CSV file with the following columns:
+
 - title: The title of the YouTube video
 - link: The URL to the YouTube video
 - duration: The duration of the video
@@ -148,6 +156,7 @@ python youtube_downloader.py [--csv CSV_FILE] [--output OUTPUT_DIR] [--all] [--i
 ```
 
 Arguments:
+
 - `--csv`: Path to the CSV file with YouTube links (default: youtube_results.csv)
 - `--output`: Directory to save downloaded videos (default: downloads)
 - `--all`: Download all videos from the CSV
@@ -160,41 +169,49 @@ Arguments:
 ### Examples
 
 List all available videos:
+
 ```bash
 python youtube_downloader.py
 ```
 
 Download a specific video (e.g., the first video):
+
 ```bash
 python youtube_downloader.py --index 1
 ```
 
 Download a range of videos:
+
 ```bash
 python youtube_downloader.py --range 1-5
 ```
 
 Download all videos:
+
 ```bash
 python youtube_downloader.py --all
 ```
 
 Save videos to a custom folder:
+
 ```bash
 python youtube_downloader.py --index 1 --output english_tutorials
 ```
 
 Download only the audio of a video:
+
 ```bash
 python youtube_downloader.py --index 1 --quality audio
 ```
 
 Download a video in 720p resolution:
+
 ```bash
 python youtube_downloader.py --index 1 --resolution 720
 ```
 
 Download a video in webm format:
+
 ```bash
 python youtube_downloader.py --index 1 --format webm
 ```

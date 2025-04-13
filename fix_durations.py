@@ -1,5 +1,19 @@
 #!/usr/bin/env python3
 """
+@author: @abdansyakuro.id
+Utility script to fix video durations in CSV files
+"""
+
+def show_project_support():
+    """Display project support message and get user feedback"""
+    print("\n⭐ If you find this project helpful, please consider giving it a star!")
+    print("🐛 Found a bug? Please open an issue at: https://github.com/developerabdan/youtube-scraper-downloader/issues")
+    feedback = input("Did you find this project helpful? (Y/N): ").strip().upper()
+    if feedback == 'Y':
+        print("Thank you for your support! Don't forget to star the project! 🌟")
+    print()
+
+"""
 Fix YouTube Video Durations Script
 
 This script updates the durations for existing YouTube videos in the CSV file.
@@ -103,4 +117,5 @@ def fix_csv_durations(csv_filename="youtube_results.csv"):
     print(f"Updated {updated} out of {total} entries in {csv_filename}")
 
 if __name__ == "__main__":
+    show_project_support()
     fix_csv_durations()
