@@ -6,6 +6,10 @@ A comprehensive tool for searching and downloading YouTube videos:
 3. **Interactive Tool**: User-friendly interactive command-line interface
 4. **Server Automation**: Run as a background process to automate YouTube searches and downloads
 
+⭐ If you find this project helpful, please consider giving it a star! Your support helps make it better.
+
+🐛 Found a bug or have a suggestion? Please [open an issue](https://github.com/developerabdan/youtube-scraper-downloader/issues) - we appreciate your feedback!
+
 ## Quick Start
 
 ### Installation
