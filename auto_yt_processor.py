@@ -53,7 +53,9 @@ DEFAULT_CONFIG = {
         'max_results_per_query': '5',
         'auto_download': 'yes',
         'download_quality': 'best',
-        'download_resolution': '720'
+        'download_resolution': '720',
+        'min_duration_minutes': '0',
+        'max_duration_minutes': '0'
     }
 }
 
@@ -165,34 +167,39 @@ def search_youtube(query, max_results, output_dir):
         logging.info(f"Searching YouTube for: '{query}'")
         logging.info(f"Fetching up to {max_results} results...")
         
-        # Execute the youtube_scraper.py script
+        # Execute the youtube_scraper_fast.py script (using the faster version)
         cmd = [
-            "python", "youtube_scraper.py", 
+            "python3", "youtube_scraper_fast.py", 
             query,
             "--max", str(max_results),
             "--output", output_file
         ]
         
+        # Run the command and capture output
         process = subprocess.run(
             cmd, 
-            check=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            capture_output=True,
             text=True
         )
+        
+        # Log the output for debugging
+        if process.stdout:
+            logging.info(f"Scraper stdout: {process.stdout}")
+        if process.stderr:
+            logging.error(f"Scraper stderr: {process.stderr}")
         
         if process.returncode == 0:
             logging.info(f"Search completed! Results saved to: {output_file}")
             return output_file
         else:
-            logging.error(f"Error searching YouTube: {process.stderr}")
+            logging.error(f"YouTube scraper failed with exit code {process.returncode}")
             return None
     
     except Exception as e:
         logging.error(f"Error searching YouTube: {str(e)}")
         return None
 
-def download_videos_from_csv(csv_file, download_dir, quality, resolution):
+def download_videos_from_csv(csv_file, download_dir, quality, resolution, min_duration=0, max_duration=0):
     """
     Download videos from the CSV file.
     
@@ -203,6 +210,8 @@ def download_videos_from_csv(csv_file, download_dir, quality, resolution):
         download_dir (str): Directory to save downloaded videos
         quality (str): Quality of videos to download (best, worst, audio)
         resolution (str): Resolution to download (e.g., 720, 1080)
+        min_duration (float): Minimum duration in minutes (0 = no minimum)
+        max_duration (float): Maximum duration in minutes (0 = no maximum)
         
     Returns:
         int: Number of videos downloaded successfully
@@ -234,6 +243,44 @@ def download_videos_from_csv(csv_file, download_dir, quality, resolution):
             logging.warning(f"No videos found in {csv_file}")
             return 0
         
+        # Apply duration filter if specified
+        filtered_videos = []
+        for video in videos:
+            # Convert duration to minutes
+            try:
+                # Check if 'minutes' column exists, otherwise calculate from 'duration'
+                if 'minutes' in video and video['minutes']:
+                    duration_minutes = float(video['minutes'])
+                else:
+                    # Parse duration format like "1:30" to minutes
+                    duration_parts = video['duration'].split(':')
+                    if len(duration_parts) == 2:  # MM:SS
+                        duration_minutes = float(duration_parts[0]) + float(duration_parts[1]) / 60
+                    elif len(duration_parts) == 3:  # HH:MM:SS
+                        duration_minutes = float(duration_parts[0]) * 60 + float(duration_parts[1]) + float(duration_parts[2]) / 60
+                    else:
+                        duration_minutes = 0
+                
+                # Apply duration filter
+                if min_duration > 0 and duration_minutes < min_duration:
+                    logging.info(f"Skipping video (too short): {video['title']} ({duration_minutes:.2f} min)")
+                    continue
+                if max_duration > 0 and duration_minutes > max_duration:
+                    logging.info(f"Skipping video (too long): {video['title']} ({duration_minutes:.2f} min)")
+                    continue
+                
+                filtered_videos.append(video)
+            except (ValueError, KeyError) as e:
+                logging.warning(f"Could not parse duration for video: {video.get('title', 'Unknown')}. Error: {str(e)}")
+                # Include video if we can't determine duration
+                filtered_videos.append(video)
+        
+        if not filtered_videos:
+            logging.warning(f"No videos match the duration filter (min: {min_duration}, max: {max_duration})")
+            return 0
+        
+        logging.info(f"Found {len(filtered_videos)} videos matching duration filter out of {len(videos)} total")
+        
         # Format parameter for yt-dlp
         format_option = "best"  # Default
         if quality == "audio":
@@ -241,13 +288,14 @@ def download_videos_from_csv(csv_file, download_dir, quality, resolution):
         elif quality == "worst":
             format_option = "worst"
         elif resolution:
-            format_option = f"bestvideo[height<={resolution}]+bestaudio/best[height<={resolution}]"
+            # Use a format that doesn't require merging if possible
+            format_option = f"best[height<={resolution}]/bestvideo[height<={resolution}]+bestaudio"
         
         # Download each video
         successful_downloads = 0
-        for i, video in enumerate(videos, 1):
+        for i, video in enumerate(filtered_videos, 1):
             video_url = video['link']
-            logging.info(f"Downloading video {i}/{len(videos)}: {video['title']}")
+            logging.info(f"Downloading video {i}/{len(filtered_videos)}: {video['title']}")
             
             try:
                 # Prepare the command
@@ -301,6 +349,19 @@ def process_query(query, config):
     quality = config['General']['download_quality']
     resolution = config['General']['download_resolution']
     
+    # Get duration filter settings
+    min_duration = float(config['General'].get('min_duration_minutes', 0))
+    max_duration = float(config['General'].get('max_duration_minutes', 0))
+    
+    # Log duration filter if active
+    if min_duration > 0 or max_duration > 0:
+        duration_filter = []
+        if min_duration > 0:
+            duration_filter.append(f">= {min_duration} minutes")
+        if max_duration > 0:
+            duration_filter.append(f"<= {max_duration} minutes")
+        logging.info(f"Duration filter active: {' and '.join(duration_filter)}")
+    
     # Search YouTube
     csv_file = search_youtube(query, max_results, results_dir)
     if not csv_file:
@@ -309,7 +370,9 @@ def process_query(query, config):
     
     # Download videos if auto_download is enabled
     if auto_download:
-        downloaded = download_videos_from_csv(csv_file, download_dir, quality, resolution)
+        downloaded = download_videos_from_csv(
+            csv_file, download_dir, quality, resolution, min_duration, max_duration
+        )
         logging.info(f"Downloaded {downloaded} videos for query: '{query}'")
     
     return True

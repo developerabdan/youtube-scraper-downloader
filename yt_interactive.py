@@ -115,11 +115,25 @@ def display_search_results(csv_file):
             title = video['title']
             duration = video['duration']
             
+            # Show duration in minutes if available
+            duration_display = duration
+            if 'minutes' in video and video['minutes']:
+                try:
+                    minutes = float(video['minutes'])
+                    if minutes >= 60:
+                        hours = int(minutes // 60)
+                        mins = int(minutes % 60)
+                        duration_display = f"{duration} ({hours}h {mins}m)"
+                    else:
+                        duration_display = f"{duration} ({minutes:.1f}m)"
+                except ValueError:
+                    pass
+                
             # Truncate long titles for better display
             if len(title) > 70:
                 title = title[:67] + "..."
                 
-            print(f"{i}. [{duration}] {title}")
+            print(f"{i}. [{duration_display}] {title}")
         
         print("-" * 60)
         return videos
@@ -127,6 +141,60 @@ def display_search_results(csv_file):
     except Exception as e:
         print(f"\n❌ Error reading results: {str(e)}")
         return []
+
+def filter_videos_by_duration(videos, min_duration=0, max_duration=0):
+    """
+    Filter videos by duration.
+    
+    @author: @abdansyakuro.id
+    
+    Args:
+        videos (list): List of video dictionaries
+        min_duration (float): Minimum duration in minutes
+        max_duration (float): Maximum duration in minutes
+        
+    Returns:
+        list: Filtered list of videos
+    """
+    if min_duration <= 0 and max_duration <= 0:
+        return videos
+    
+    filtered_videos = []
+    skipped_count = 0
+    
+    for video in videos:
+        # Convert duration to minutes
+        try:
+            # Check if 'minutes' column exists, otherwise calculate from 'duration'
+            if 'minutes' in video and video['minutes']:
+                duration_minutes = float(video['minutes'])
+            else:
+                # Parse duration format like "1:30" to minutes
+                duration_parts = video['duration'].split(':')
+                if len(duration_parts) == 2:  # MM:SS
+                    duration_minutes = float(duration_parts[0]) + float(duration_parts[1]) / 60
+                elif len(duration_parts) == 3:  # HH:MM:SS
+                    duration_minutes = float(duration_parts[0]) * 60 + float(duration_parts[1]) + float(duration_parts[2]) / 60
+                else:
+                    duration_minutes = 0
+            
+            # Apply duration filter
+            if min_duration > 0 and duration_minutes < min_duration:
+                skipped_count += 1
+                continue
+            if max_duration > 0 and duration_minutes > max_duration:
+                skipped_count += 1
+                continue
+            
+            filtered_videos.append(video)
+        except (ValueError, KeyError):
+            # Include video if we can't determine duration
+            filtered_videos.append(video)
+    
+    if skipped_count > 0:
+        print(f"\n⏱️ Filtered out {skipped_count} videos that didn't meet duration criteria.")
+    
+    return filtered_videos
 
 def download_video(video_url, output_path, quality="best", resolution=None):
     """
@@ -213,6 +281,55 @@ def main():
     if download_option not in ["yes", "y"]:
         print("\nThank you for using the tool!")
         return
+    
+    # Ask for duration filter
+    duration_filter = get_input("⏱️ Would you like to filter videos by duration? (yes/no)", "no").lower()
+    min_duration = 0
+    max_duration = 0
+    
+    if duration_filter in ["yes", "y"]:
+        min_duration_input = get_input("⏱️ Minimum duration in minutes (0 for no minimum)", "0")
+        try:
+            min_duration = float(min_duration_input)
+        except ValueError:
+            print("Invalid number. Using no minimum duration.")
+            min_duration = 0
+        
+        max_duration_input = get_input("⏱️ Maximum duration in minutes (0 for no maximum)", "0")
+        try:
+            max_duration = float(max_duration_input)
+        except ValueError:
+            print("Invalid number. Using no maximum duration.")
+            max_duration = 0
+        
+        # Apply duration filter
+        if min_duration > 0 or max_duration > 0:
+            filter_description = []
+            if min_duration > 0:
+                filter_description.append(f">= {min_duration} minutes")
+            if max_duration > 0:
+                filter_description.append(f"<= {max_duration} minutes")
+            
+            print(f"\n⏱️ Applying duration filter: {' and '.join(filter_description)}")
+            videos = filter_videos_by_duration(videos, min_duration, max_duration)
+            
+            if not videos:
+                print("\n❌ No videos match your duration criteria. Exiting.")
+                return
+            
+            # Display filtered results
+            print("\n📋 FILTERED RESULTS:")
+            print("-" * 60)
+            for i, video in enumerate(videos, 1):
+                title = video['title']
+                duration = video['duration']
+                
+                # Truncate long titles for better display
+                if len(title) > 70:
+                    title = title[:67] + "..."
+                    
+                print(f"{i}. [{duration}] {title}")
+            print("-" * 60)
     
     # Ask which videos to download
     selection = get_input("🔢 Enter video number to download, or 'all' for all videos, or range (e.g., 1-5)")

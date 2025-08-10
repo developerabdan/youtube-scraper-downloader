@@ -82,6 +82,11 @@ For server deployments, this tool can run as a background process that automatic
 
    # Resolution (e.g., 360, 720, 1080)
    download_resolution = 720
+
+   # Duration filter (in minutes)
+   # Set to 0 to disable filtering
+   min_duration_minutes = 60  # Only videos longer than 60 minutes
+   max_duration_minutes = 0   # No maximum limit
    ```
 
 2. Add your search keywords to `query.txt`, one per line:

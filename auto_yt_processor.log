@@ -1,0 +1,223 @@
+2025-04-15 10:01:55,029 - INFO - Starting YouTube Automatic Query Processor
+2025-04-15 10:01:55,030 - INFO - Configuration loaded. Using query file: query.txt
+2025-04-15 10:01:55,030 - INFO - Check interval: 10 minutes
+2025-04-15 10:01:55,030 - INFO - Found 1 new queries to process
+2025-04-15 10:01:55,030 - INFO - Processing query: 'clase completa de economía'
+2025-04-15 10:01:55,031 - INFO - Searching YouTube for: 'clase completa de economía'
+2025-04-15 10:01:55,031 - INFO - Fetching up to 10 results...
+2025-04-15 10:01:56,125 - INFO - Scraper stdout: Loaded configuration from config.json
+Starting YouTube search for 'clase completa de economía'...
+Searching YouTube for: clase completa de economía
+Region: ES
+Language: es
+Fetching search results from YouTube...
+Search results received, processing data...
+Found 49 videos, processing up to 10...
+Processed video 1/10: Economía - Repaso definitivo [2020] | San Marcos - UNSA - UNA
+Processed video 2/10: La Economía 💰 Economía [CICLO FREE]
+Processed video 3/10: CURSO Completo de FINANZAS PERSONALES | Andrés Garza
+Processed video 4/10: Introducción
+Processed video 5/10: Inicio Conferencia
+Processed video 6/10: Tu Situación Actual
+Processed video 7/10: La Verdadera de la Libertad Financiera
+Processed video 8/10: Fiel en lo Poco
+Processed video 9/10: Tu Impacto Hoy
+Processed video 10/10: Definición del Éxito
+Completed processing 10 videos
+Added 10 new results. Data saved to results/clase_completa_de_economía_20250415_100155.csv
+Total execution time: 0.83 seconds
+
+2025-04-15 10:01:56,126 - INFO - Search completed! Results saved to: results/clase_completa_de_economía_20250415_100155.csv
+2025-04-15 10:01:56,126 - INFO - Found 10 videos matching duration filter out of 10 total
+2025-04-15 10:01:56,127 - INFO - Downloading video 1/10: Economía - Repaso definitivo [2020] | San Marcos - UNSA - UNA
+2025-04-15 10:03:26,116 - INFO - Successfully downloaded: https://www.youtube.com/watch?v=IOtoyVhtElQ
+2025-04-15 10:03:26,117 - INFO - Downloading video 2/10: La Economía 💰 Economía [CICLO FREE]
+2025-04-15 10:04:07,816 - INFO - Process interrupted by user
+2025-04-15 10:06:25,218 - INFO - Found 1 new queries to process
+2025-04-15 10:06:25,220 - INFO - Processing query: 'clase completa de economía'
+2025-04-15 10:06:25,221 - INFO - Searching YouTube for: 'clase completa de economía'
+2025-04-15 10:06:25,222 - INFO - Fetching up to 5 results...
+2025-04-15 10:06:25,351 - ERROR - Error searching YouTube: Command '['python3', 'youtube_scraper.py', 'clase completa de economía', '--max', '5', '--output', 'results/clase_completa_de_economía_20250415_100625.csv']' returned non-zero exit status 1.
+2025-04-15 10:06:25,352 - ERROR - Failed to get search results for 'clase completa de economía'
+2025-04-15 10:06:25,352 - INFO - Next check scheduled at: 11:06:25
+2025-04-15 10:06:32,555 - INFO - Starting YouTube Automatic Query Processor
+2025-04-15 10:06:32,556 - INFO - Configuration loaded. Using query file: query.txt
+2025-04-15 10:06:32,557 - INFO - Check interval: 10 minutes
+2025-04-15 10:06:32,557 - INFO - Found 1 new queries to process
+2025-04-15 10:06:32,557 - INFO - Processing query: 'vídeo educativo'
+2025-04-15 10:06:32,558 - INFO - Duration filter active: >= 30.0 minutes
+2025-04-15 10:06:32,558 - INFO - Searching YouTube for: 'vídeo educativo'
+2025-04-15 10:06:32,558 - INFO - Fetching up to 10 results...
+2025-04-15 10:06:33,583 - INFO - Scraper stdout: Loaded configuration from config.json
+Starting YouTube search for 'vídeo educativo'...
+Searching YouTube for: vídeo educativo
+Region: ES
+Language: es
+Fetching search results from YouTube...
+Search results received, processing data...
+Found 62 videos, processing up to 10...
+Processed video 1/10: ¡Aprende junto a tu hijo! Preguntas para niños de 4 a 7 años | Videos educativos para niños [9:40]
+Processed video 2/10: Blippi aprende los cinco sentidos  | Aprende con Blippi | Videos Educativos [57:20]
+Processed video 3/10: Blippi aprende los cinco sentidos [3:55]
+Processed video 4/10: Blippi vista juegos infantiles al aire libre [1:02:36]
+Processed video 5/10: Blippi visita un patio de juegos cubierto (Funtastic Playtorium - Part 2) [30:36]
+Processed video 6/10: La Evolución De Los Seres Humanos (Videos Educativos para Niños) [1:04:51]
+Processed video 7/10: La Evolución De Los Seres Humanos [26:09]
+Processed video 8/10: Homonización [2:02]
+Processed video 9/10: Primates [11:50]
+Processed video 10/10: Homo Habilis [4:34]
+Completed processing 10 videos
+Added 10 new results. Data saved to results/vídeo_educativo_20250415_100632.csv
+Total execution time: 0.67 seconds
+
+2025-04-15 10:06:33,583 - INFO - Search completed! Results saved to: results/vídeo_educativo_20250415_100632.csv
+2025-04-15 10:06:33,584 - INFO - Skipping video (too short): ¡Aprende junto a tu hijo! Preguntas para niños de 4 a 7 años | Videos educativos para niños (9.67 min)
+2025-04-15 10:06:33,584 - INFO - Skipping video (too short): Blippi aprende los cinco sentidos (3.92 min)
+2025-04-15 10:06:33,584 - INFO - Skipping video (too short): La Evolución De Los Seres Humanos (26.15 min)
+2025-04-15 10:06:33,584 - INFO - Skipping video (too short): Homonización (2.03 min)
+2025-04-15 10:06:33,584 - INFO - Skipping video (too short): Primates (11.83 min)
+2025-04-15 10:06:33,584 - INFO - Skipping video (too short): Homo Habilis (4.57 min)
+2025-04-15 10:06:33,585 - INFO - Found 4 videos matching duration filter out of 10 total
+2025-04-15 10:06:33,585 - INFO - Downloading video 1/4: Blippi aprende los cinco sentidos  | Aprende con Blippi | Videos Educativos
+2025-04-15 10:06:40,381 - INFO - Successfully downloaded: https://www.youtube.com/watch?v=jYI_ng_y_7Q
+2025-04-15 10:06:40,381 - INFO - Downloading video 2/4: Blippi vista juegos infantiles al aire libre
+2025-04-15 10:06:47,474 - INFO - Successfully downloaded: https://www.youtube.com/watch?v=idBiEAfo5PU
+2025-04-15 10:06:47,474 - INFO - Downloading video 3/4: Blippi visita un patio de juegos cubierto (Funtastic Playtorium - Part 2)
+2025-04-15 10:06:53,522 - INFO - Successfully downloaded: https://www.youtube.com/watch?v=ba15rHTTCFE
+2025-04-15 10:06:53,523 - INFO - Downloading video 4/4: La Evolución De Los Seres Humanos (Videos Educativos para Niños)
+2025-04-15 10:06:59,394 - INFO - Successfully downloaded: https://www.youtube.com/watch?v=Hw7gZWUQjJI
+2025-04-15 10:06:59,394 - INFO - Downloaded 4 videos for query: 'vídeo educativo'
+2025-04-15 10:06:59,395 - INFO - Query marked as processed: 'vídeo educativo'
+2025-04-15 10:06:59,395 - INFO - Next check scheduled at: 10:16:59
+2025-04-15 10:07:08,221 - INFO - Process interrupted by user
+2025-04-15 10:09:09,881 - INFO - Starting YouTube Automatic Query Processor
+2025-04-15 10:09:09,882 - INFO - Configuration loaded. Using query file: query.txt
+2025-04-15 10:09:09,882 - INFO - Check interval: 10 minutes
+2025-04-15 10:09:09,883 - INFO - Found 1 new queries to process
+2025-04-15 10:09:09,883 - INFO - Processing query: 'documental completo en español'
+2025-04-15 10:09:09,883 - INFO - Duration filter active: >= 30.0 minutes
+2025-04-15 10:09:09,883 - INFO - Searching YouTube for: 'documental completo en español'
+2025-04-15 10:09:09,883 - INFO - Fetching up to 10 results...
+2025-04-15 10:09:11,257 - INFO - Scraper stdout: Loaded configuration from config.json
+Starting YouTube search for 'documental completo en español'...
+Searching YouTube for: documental completo en español
+Region: ES
+Language: es
+Fetching search results from YouTube...
+Search results received, processing data...
+Found 52 videos, processing up to 10...
+Processed video 1/10: China. La vida de los pobres y los ricos: arroz de plástico y la Ciudad Prohibida de Pekín [1:25:58]
+Processed video 2/10: OCÉANOS INFINITOS | Un Viaje por los Océanos del Mundo - Documental Completo [1:30:42]
+Processed video 3/10: PERÚ - GUARDIANES DE LOS ANDES Y DE LA SELVA | Documental Completo [50:54]
+Processed video 4/10: 🔥 ANÍBAL: EL PEOR ENEMIGO DE ROMA ⚔️ DOCUMENTAL COMPLETO EN ESPAÑOL [1:30:42]
+Processed video 5/10: La tumba tóxica de Tutankamón - National Geographic - Documental HD [1:28:12]
+Processed video 6/10: Mecánica de los Sueños-Documentales Discovery Max Español Completos 2020 HD Los mejores documentales [54:27]
+Processed video 7/10: HISTORIA PROHIBIDA - DOCUMENTAL COMPLETO EN ESPAÑOL [53:36]
+Processed video 8/10: Maravillas del Mundo: Viviendo En Las Islas Azores | Documental Completo en Español [52:03]
+Processed video 9/10: Yo documental Episodio 143 | La Mafia y El Vaticano, una Intrincada Red de Poder [43:36]
+Processed video 10/10: SABANA AFRICANA - La Lucha por la Supervivencia | Documental Completo [1:01:46]
+Completed processing 10 videos
+Added 10 new results. Data saved to results/documental_completo_en_español_20250415_100909.csv
+Total execution time: 0.99 seconds
+
+2025-04-15 10:09:11,258 - INFO - Search completed! Results saved to: results/documental_completo_en_español_20250415_100909.csv
+2025-04-15 10:09:11,259 - INFO - Found 10 videos matching duration filter out of 10 total
+2025-04-15 10:09:11,259 - INFO - Downloading video 1/10: China. La vida de los pobres y los ricos: arroz de plástico y la Ciudad Prohibida de Pekín
+2025-04-15 10:10:21,983 - INFO - Successfully downloaded: https://www.youtube.com/watch?v=hxVfrYNVO8A
+2025-04-15 10:10:21,983 - INFO - Downloading video 2/10: OCÉANOS INFINITOS | Un Viaje por los Océanos del Mundo - Documental Completo
+2025-04-15 10:11:41,700 - INFO - Successfully downloaded: https://www.youtube.com/watch?v=wCHi8B2WK-8
+2025-04-15 10:11:41,700 - INFO - Downloading video 3/10: PERÚ - GUARDIANES DE LOS ANDES Y DE LA SELVA | Documental Completo
+2025-04-15 10:11:55,080 - INFO - Process interrupted by user
+2025-04-15 10:23:06,522 - INFO - Process interrupted by user
+2025-04-15 10:23:11,643 - INFO - Starting YouTube Automatic Query Processor
+2025-04-15 10:23:11,644 - INFO - Configuration loaded. Using query file: query.txt
+2025-04-15 10:23:11,645 - INFO - Check interval: 10 minutes
+2025-04-15 10:23:11,646 - INFO - Found 1 new queries to process
+2025-04-15 10:23:11,646 - INFO - Processing query: 'documental completo en español'
+2025-04-15 10:23:11,646 - INFO - Duration filter active: >= 30.0 minutes
+2025-04-15 10:23:11,647 - INFO - Searching YouTube for: 'documental completo en español'
+2025-04-15 10:23:11,647 - INFO - Fetching up to 10 results...
+2025-04-15 10:23:14,110 - ERROR - Scraper stderr: Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/ytscrapping/youtube_scraper_fast.py", line 17, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+
+2025-04-15 10:23:14,110 - ERROR - YouTube scraper failed with exit code 1
+2025-04-15 10:23:14,110 - ERROR - Failed to get search results for 'documental completo en español'
+2025-04-15 10:23:14,111 - INFO - Next check scheduled at: 10:33:14
+2025-04-15 10:23:16,513 - INFO - Process interrupted by user
+2025-04-15 10:26:02,901 - INFO - Starting YouTube Automatic Query Processor
+2025-04-15 10:26:02,904 - INFO - Configuration loaded. Using query file: query.txt
+2025-04-15 10:26:02,904 - INFO - Check interval: 10 minutes
+2025-04-15 10:26:02,905 - INFO - Found 1 new queries to process
+2025-04-15 10:26:02,905 - INFO - Processing query: 'documental completo en español'
+2025-04-15 10:26:02,906 - INFO - Duration filter active: >= 30.0 minutes
+2025-04-15 10:26:02,906 - INFO - Searching YouTube for: 'documental completo en español'
+2025-04-15 10:26:02,906 - INFO - Fetching up to 10 results...
+2025-04-15 10:26:03,009 - ERROR - Scraper stderr: Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/ytscrapping/youtube_scraper_fast.py", line 17, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+
+2025-04-15 10:26:03,009 - ERROR - YouTube scraper failed with exit code 1
+2025-04-15 10:26:03,009 - ERROR - Failed to get search results for 'documental completo en español'
+2025-04-15 10:26:03,010 - INFO - Next check scheduled at: 10:36:03
+2025-04-15 10:27:19,600 - INFO - Process interrupted by user
+2025-04-15 10:27:20,127 - INFO - Starting YouTube Automatic Query Processor
+2025-04-15 10:27:20,128 - INFO - Configuration loaded. Using query file: query.txt
+2025-04-15 10:27:20,128 - INFO - Check interval: 10 minutes
+2025-04-15 10:27:20,129 - INFO - Found 1 new queries to process
+2025-04-15 10:27:20,129 - INFO - Processing query: 'documental completo en español'
+2025-04-15 10:27:20,129 - INFO - Duration filter active: >= 30.0 minutes
+2025-04-15 10:27:20,129 - INFO - Searching YouTube for: 'documental completo en español'
+2025-04-15 10:27:20,129 - INFO - Fetching up to 10 results...
+2025-04-15 10:27:20,222 - ERROR - Scraper stderr: Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/ytscrapping/youtube_scraper_fast.py", line 17, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+
+2025-04-15 10:27:20,223 - ERROR - YouTube scraper failed with exit code 1
+2025-04-15 10:27:20,223 - ERROR - Failed to get search results for 'documental completo en español'
+2025-04-15 10:27:20,223 - INFO - Next check scheduled at: 10:37:20
+2025-04-15 10:27:21,746 - INFO - Process interrupted by user
+2025-04-15 10:27:37,325 - INFO - Starting YouTube Automatic Query Processor
+2025-04-15 10:27:37,326 - INFO - Configuration loaded. Using query file: query.txt
+2025-04-15 10:27:37,326 - INFO - Check interval: 10 minutes
+2025-04-15 10:27:37,326 - INFO - Found 1 new queries to process
+2025-04-15 10:27:37,326 - INFO - Processing query: 'documental completo en español'
+2025-04-15 10:27:37,327 - INFO - Duration filter active: >= 30.0 minutes
+2025-04-15 10:27:37,327 - INFO - Searching YouTube for: 'documental completo en español'
+2025-04-15 10:27:37,327 - INFO - Fetching up to 10 results...
+2025-04-15 10:27:38,462 - INFO - Scraper stdout: Loaded configuration from config.json
+Starting YouTube search for 'documental completo en español'...
+Searching YouTube for: documental completo en español
+Region: ES
+Language: es
+Fetching search results from YouTube...
+Search results received, processing data...
+Found 55 videos, processing up to 10...
+Processed video 1/10: China. La vida de los pobres y los ricos: arroz de plástico y la Ciudad Prohibida de Pekín [1:25:58]
+Processed video 2/10: OCÉANOS INFINITOS | Un Viaje por los Océanos del Mundo - Documental Completo [1:30:42]
+Processed video 3/10: PANTANAL SALVAJE - Depredadores Silenciosos en el Corazón de Sudamérica | Documentales [1:18:57]
+Processed video 4/10: SERENGETI - La Tierra de los Depredadores Supremos | Documentales [1:15:43]
+Processed video 5/10: La magia de la primavera | Historias de animales [52:20]
+Processed video 6/10: Mecánica de los Sueños-Documentales Discovery Max Español Completos 2020 HD Los mejores documentales [54:27]
+Processed video 7/10: SUPER DOCUMENTAL  LAS SIETE SEÑALES DEL APOCALIPSIS  DOCUMENTAL COMPLETO EN ESPAÑOL 2020 [1:24:19]
+Processed video 8/10: PETRA: EL REINO PERDIDO DE LOS NABATEOS | Documental Completo en Español [9:09]
+Processed video 9/10: Maravillas del Mundo: Viviendo En Las Islas Azores | Documental Completo en Español [52:03]
+Processed video 10/10: LA GRANDIOSA AMAZONIA | Un Viaje Extraordinario - Documental Completo [50:15]
+Completed processing 10 videos
+Added 10 new results. Data saved to results/documental_completo_en_español_20250415_102737.csv
+Total execution time: 0.76 seconds
+
+2025-04-15 10:27:38,463 - INFO - Search completed! Results saved to: results/documental_completo_en_español_20250415_102737.csv
+2025-04-15 10:27:38,463 - INFO - Skipping video (too short): PETRA: EL REINO PERDIDO DE LOS NABATEOS | Documental Completo en Español (9.15 min)
+2025-04-15 10:27:38,463 - INFO - Found 9 videos matching duration filter out of 10 total
+2025-04-15 10:27:38,463 - INFO - Downloading video 1/9: China. La vida de los pobres y los ricos: arroz de plástico y la Ciudad Prohibida de Pekín
+2025-04-15 10:29:12,607 - INFO - Successfully downloaded: https://www.youtube.com/watch?v=hxVfrYNVO8A
+2025-04-15 10:29:12,608 - INFO - Downloading video 2/9: OCÉANOS INFINITOS | Un Viaje por los Océanos del Mundo - Documental Completo
+2025-04-15 10:30:17,686 - INFO - Successfully downloaded: https://www.youtube.com/watch?v=wCHi8B2WK-8
+2025-04-15 10:30:17,686 - INFO - Downloading video 3/9: PANTANAL SALVAJE - Depredadores Silenciosos en el Corazón de Sudamérica | Documentales
+2025-04-15 10:31:30,409 - INFO - Successfully downloaded: https://www.youtube.com/watch?v=jQ54-6vuT78
+2025-04-15 10:31:30,410 - INFO - Downloading video 4/9: SERENGETI - La Tierra de los Depredadores Supremos | Documentales
+2025-04-15 10:32:50,615 - INFO - Process interrupted by user
